@@ -1,6 +1,7 @@
 // Imports
 import mongoose from "mongoose";
 import 'dotenv/config';
+import sanitize from 'mongo-sanitize';
 
 
 // Connect to database based on the .env file
@@ -23,10 +24,10 @@ database.once("open", (err) => {
 // SCHEMA: Define exercise collection schema
 const exerciseSchema = mongoose.Schema({
     name: {type: String, required: true},
-    reps: {type: Number, required: true},
-    weight: {type: Number, required: true},
-    unit: {type: String, required: true},
-    date: {type: Date, required: true, min: '011-21-2021', default: new Date()}
+    reps: {type: Number, required: true, min: 0},
+    weight: {type: Number, required: true, min: 0},
+    unit: {type: String, required: true, default: 'lbs'},
+    date: {type: Date, required: true, min: '2021-11-21', default: new Date()}
 });
 
 // Compile model from schema
@@ -35,12 +36,17 @@ const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 // CREATE model //////////////////////////////////////////////////////
 const createExercise = async (name, reps, weight, unit, date) => {
+    const cleanName = sanitize(name);
+    const cleanReps = sanitize(reps);
+    const cleanWeight = sanitize(weight);
+    const cleanUnit = sanitize(unit);
+    const cleanDate = sanitize(date);
     const exercise = new Exercise({
-        name: name,
-        reps: reps,
-        weight: weight,
-        unit: unit,
-        date: date
+        name: cleanName,
+        reps: cleanReps,
+        weight: cleanWeight,
+        unit: cleanUnit,
+        date: cleanDate
     });
     return exercise.save();
 }
@@ -55,21 +61,25 @@ const findExercises = async () => {
 
 //Retrieve an exercise based on ID and return a promise
 const findExerciseById = async (_id) => {
-    const query = Exercise.findById(_id);
+    const clean_id = sanitize(_id)
+    const query = Exercise.findById(clean_id);
     return query.exec();
 }
 
 
 // UPDATE model //////////////////////////////////////////////////////
 const updateExerciseById = async (_id, update) => {
-    const result = await Exercise.updateOne(_id, update);
+    const clean_id = sanitize(_id)
+    const cleanUpdate = sanitize(update)
+    const result = await Exercise.updateOne(clean_id, cleanUpdate);
     return result.modifiedCount;
 }
 
 
 // DELETE model //////////////////////////////////////////////////////
 const deleteExerciseById = async (_id) => {
-    const result = await Exercise.deleteOne(_id);
+    const clean_id = sanitize(_id)
+    const result = await Exercise.deleteOne(clean_id);
     return result.deletedCount;
 }
 

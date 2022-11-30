@@ -37,13 +37,17 @@ export const EditPage = ({ exercise }) => {
         <>
         <article>
             <h2>Edit an exercise entry</h2>
-            <form onSubmit={(e) => {e.preventDefault();}}>
+            <form onSubmit={(e) => {
+                editExercise();
+                e.preventDefault();
+            }}>
                 <fieldset>
                     <legend>Which exercise do you want to update</legend>
                     <label for="name">Exercise Name</label>
                     <input
                         type="text" required
-                        placeholder='Name of Exercise'
+                        pattern="[A-Za-z]+"
+                        title="Exercise name no special characters"
                         value={name}
                         onChange={e => setName(e.target.value)}
                         id="name" />
@@ -51,7 +55,8 @@ export const EditPage = ({ exercise }) => {
                     <label for="reps">Amount of Reps</label>
                     <input
                         type="text" required
-                        placeholder='0'
+                        pattern="[0-9]+"
+                        title="Number of repetitions no decimals"
                         value={reps}
                         onChange={e => setReps(e.target.value)}
                         id="reps" />
@@ -59,22 +64,29 @@ export const EditPage = ({ exercise }) => {
                     <label for="weight">Weight</label>
                     <input
                         type="text" required
-                        placeholder='0'
+                        pattern="[-+]?[0-9]*[.,]?[0-9]+"
+                        title="Number for Weight. can use decimals"
                         value={weight}
                         onChange={e => setWeight(e.target.value)}
                         id="weight" />
 
                     <label for="unit">Weight Unit</label>
-                    <input
+                    <select
                         type="text" required
                         placeholder='Weight Unit Measurement'
                         value={unit}
                         onChange={e => setUnit(e.target.value)}
-                        id="unit" />
+                        id="unit">
+                            <option>lbs</option>
+                            <option>kgs</option>
+                            <option>miles</option>
+                            <option>laps</option>
+                    </select>
 
                     <label for="date">Date</label>
                     <input
                         type="date" required
+                        min='2021-11-21'
                         value={date}
                         onChange={e => setDate(e.target.value)}
                         id="date" />
@@ -82,7 +94,6 @@ export const EditPage = ({ exercise }) => {
                     <label for="submit">
                         <button
                             type="submit"
-                            onClick={editExercise}
                             id="submit"
                         >Update</button>
                     </label>

@@ -5,7 +5,7 @@ function ExerciseTable({ exercises, onEdit, onDelete }) {
     return (
         <>
         <table>
-            <caption> Add and Edit Exercises</caption>
+            <caption> List of Exercises</caption>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -13,6 +13,8 @@ function ExerciseTable({ exercises, onEdit, onDelete }) {
                     <th>Weight</th>
                     <th>Unit</th>
                     <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>

@@ -2,263 +2,222 @@
 /*  ===== See tablet, desktop, and print @media queries at the bottom. */
 
 
-/*   ----- Imports  -----  */
-          /* Add fonts from the app's server 
-@font-face {                
-  font-family: 'FontName';
-  src: url('FontName.woff2') format('woff2');
-} 
-          */                           
+/*   ----- Imports  -----  */                         
 
-          /* ...or hosted services like Google Fonts  */
-          @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Ubuntu&display=swap');
+/* Google font Montesserat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Ubuntu&display=swap');
+          
+/*   ----- Variables  -----  */
+:root {
+  --Big-Machine-red: hsla(358, 63%, 45%, 1);
+  --Big-Machine-steel: hsla(36, 4%, 22%, 1); 
+  --Big-Machine-light: hsla(184, 9%, 72%, 1); 
+  --Big-Machine-grey: hsla(176, 9%, 57%, 1); 
+  --Big-Machine-teal: hsla(174, 18%, 34%, 1); 
+}
+ 
+
+/*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+body {       /* Can alternatively define in html {} or :root {} */
+  color:var(--Big-Machine-light);
+  background-color:var(--Big-Machine-steel);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt;
+  margin: 5px;
+  padding: 0px 25% 0px 25%;
+}
+          
+
+/*  ----- Navigation ----- Override text links for navigation only.  */
+nav {
+  text-align: center;
+}
+nav a {
+  background-color:var(--Big-Machine-light);
+  color:var(--Big-Machine-steel);
+  text-decoration: none;
+  padding: 15px 25px;
+  margin: 0px 5px;
+  font-size: 24pt;
+  font-weight: lighter;
+}
+nav a:hover {
+  background-color:var(--Big-Machine-red); 
+  color:var(--Big-Machine-light);
+  font-weight: bold;
+}
+
+
+/*  ----- Page layout blocks -----  */          
+header, footer{
+  background-color:var(--Big-Machine-teal);
+  color:var(--Big-Machine-light);
+  font-size: 28pt;
+  font-weight: light;
+  margin: 0px 0px 50px 0px;
+  padding: 5px;
+}
+header {
+  text-align: center;
+}
+footer {
+  padding: 5px 5px 5px 75px;
+}         
+main {
+  background-color:var(--Big-Machine-grey);
+  color:var(--Big-Machine-steel);
+  border: 2px solid var(--Big-Machine-grey);
+  padding: 5% 15%;
+  margin: 2.5% 0;
+}
+
+section {}
+article {}
+
+div {}
+aside {}
+          
+          
+/*  -----  Typography  ----- */
+
          
+span {
+  /* padding: 0px 7.5px; */
+}
+                    
+/*  ----- Coding or instructional typography ----- */
+          
+/*  ----- Table ----- */
+table {
+  border-collapse: collapse;
+  border: 2px solid var(--Big-Machine-steel);
+  background-color: var(--Big-Machine-light);
+  color: var(--Big-Machine-steel);
+}
+caption {
+  font-size: 24pt;
+}
+tbody {}
+tfoot {}
+tr {}
+tr:nth-child(even) {
+  background-color: var(--Big-Machine-grey);
+}
+th, td{ 
+  border: 2px solid var(--Big-Machine-steel);
+  color: var(--Big-Machine-steel);
+  padding: 5px 20px 5px 5px;
+  text-align: left;
+  font-size: 16pt;
+}
+th {
+  color: var(--Big-Machine-light);
+  background-color: var(--Big-Machine-teal);
+  font-size: 20pt;
+  
+}
+ 
 
-          /* @import 'node_modules/modern-normalize/modern-normalize.css'; */
-                    /* npm install modern-normalize 
-                      Resets elements for browser consistancy.  
-                      http://nicolasgallagher.com/about-normalize-css/ 
-                    */
+/*  ----- Form ----- */
+form {
+  margin-top: 10px;
+}
+fieldset {}
+legend {
+  font-weight: bold;
+}
+label {
+  font-weight: bold;
+  display: block;
+  padding: 1em 0px 5px;
+}
+select {
+  box-sizing: content-box;
+}
+input, select, button{
+  color:var(--Big-Machine-steel);
+  background-color:var(--Big-Machine-light);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt;
+  box-sizing: content-box;
+  padding: 10px 5px 10px 5px;
+  width: 200px;
+  
+}
+button {
+  background-color:var(--Big-Machine-steel);
+  color: var(--Big-Machine-light);
+  margin: 10px 5px 0px 0px;
+  font-weight: lighter;
+}
+button:hover {
+  background-color:var(--Big-Machine-red); 
+  color:var(--Big-Machine-light);
+  font-weight: bold;
+}
+
+input:-webkit-autofill {
+  border: 3px solid var(--Big-Machine-teal);
+}
+
+input:autofill {
+  border: 3px solid var(--Big-Machine-teal);
+}
+input:valid, select:valid {
+  border: 3px solid var(--Big-Machine-teal);
+  background-color: rgb(232, 240, 254);
+}
+input:invalid {
+  border: 3px solid var(--Big-Machine-red);
+}
+
+         
+/* ----- Media ----- */
+.react-icons {
+  vertical-align: middle;
+  margin: 0;
+  color: var(--Big-Machine-light);
+  background-color: var(--Big-Machine-steel);
+  padding: 0.5em;
+  border-radius: 20%;
+}
+.react-icons:hover {
+  cursor: pointer;
+  color: var(--Big-Machine-light);
+  background-color: var(--Big-Machine-red);
+}
+
+img {}
+                  
+/*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+.floatright {}
+.floatleft {}
+.center-middle {}
           
-                    /* Component-specific stylesheets, if any 
-          @import "component1.css";   
-                    */
+.ten {}
+.twenty {}
+.thirty {}
+.forty {}
+.fifty {}
+.sixty {}
+.seventy {}
+.eighty {}
           
-          /*   ----- Variables  -----  */
-          :root {
-            --gruff-green: #39804c;
-            --dark-gruff-green: #21492c;
-            --light-gruff-green: #3C9653;
-            --off-white: #f0f0f0cc;
-          }
+.radius {}
+.circle {}
+.boxshadow {}
+.tshadow {} 
+.gradient {}
+.shape {}
           
-          /*  ----- Viewport ----- elements inherited by all remaining elements ----- */
-          body {       /* Can alternatively define in html {} or :root {} */
-            color:var(--off-white);
-            background-color:var(--gruff-green);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14pt;
-            margin: 5px;
-            padding: 0px 25% 0px 25%;
-          }
+@keyframes App-logo {}
           
-          /* ----- Anchors ----- Text links */
-          a {}
-          a:link {}
-          a:hover {}
-          a:active {}
-          a:visited {}
+/*   ===== TABLET  media query overrides mobile styles ===== */
+@media all and (min-width: 600px) {}
           
-          /*  ----- Navigation ----- Override text links for navigation only.  */
-          nav {
-            text-align: center;
-          }
-          nav a {
-            background-color:var(--dark-gruff-green);
-            border: 5px solid var(--dark-gruff-green);
-            color:var(--off-white);
-            text-decoration: none;
-            padding: 15px 25px;
-            margin: 0px 5px;
-            font-size: 24pt;
-            font-weight: lighter;
-          }
-          nav a:hover {
-            background-color:var(--gruff-green); 
-            color:var(--dark-gruff-green);
-            font-weight: bold;
-          }
+/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+@media all and (min-width: 1080px) {}
           
-          /*  ----- Page layout blocks -----  */
-          
-          header, footer{
-            background-color:var(--dark-gruff-green);
-            color:var(--off-white);
-            border: 5px dashed #330D0E;
-            border-radius: 25px;
-            font-size: 28pt;
-            font-weight: light;
-            margin: 0px 0px 50px 0px;
-            padding: 5px;
-          }
-          header {
-            text-align: center;
-          }
-          footer {
-            padding: 5px 5px 5px 75px;
-          }
-          
-          main {
-            background-color:var(--light-gruff-green);
-            color:#330D0E;
-            border: 2px solid var(--dark-gruff-green);
-            border-radius: 25px;
-            padding: 5% 15%;
-            margin: 2.5% 0;
-          }
-          section {}
-            article {}
-              #topic1 {}
-              #topic2 {}
-              #gallery1 {}
-              #gallery2 {}
-          div {}
-          aside {}
-          
-          
-          /*  -----  Typography  ----- */
-          .tag-line {
-            font-size: 18pt;
-          }
-          p {}
-          br {}
-          ol, ul, dl {}
-          li {}
-          dt {}
-          dd {}
-          
-          h1, h2, h3, h4, h5, h6 {} /* Define consistant font family.*/
-          h1 {}
-          h2 {}
-          h3 {}
-          h4 {}
-          h5 {}
-          h6 {}
-          
-          abbr {}
-          acronym {}
-          address {}
-          blockquote {}
-            q {}
-            cite {}
-          em {}
-          hr {}
-          mark {}
-          s {}
-          span {
-            padding: 0px 7.5px;
-          }
-          strong {}
-          sub {}
-          sup {}
-          time {}
-          
-          /*  ----- Coding or instructional typography ----- */
-          pre {}
-          code {}
-          kbd {}
-          samp {}
-          var {}
-          del {} 
-          ins {}
-          
-          /*  ----- Table ----- */
-          table {
-            border-collapse: collapse;
-            border: 2px solid #330D0E;
-            /* padding: 2px 50px; */
-          }
-          caption {}
-          thead {}
-          tbody {}
-          tfoot {}
-          tr {}
-          tr:nth-child(even) {}
-          th, td{
-            border: 2px solid #330D0E;
-            padding: 5px 20px 5px 5px;
-            text-align: left;
-          }
-          .quantity-td {
-            text-align: center;
-            padding: 5px;
-          }
-            td:nth-child(1) {}
-          colgroup {}
-          data {}
-          datalist {}
-          
-          
-          /*  ----- Form ----- */
-          form {
-            margin-top: 10px;
-          }
-          fieldset {}
-            legend {}
-          label {}
-            
-            input, button{
-              color:var(--off-white);
-              background-color:var(--gruff-green);
-              font-family: 'Montserrat', sans-serif;
-              font-size: 14pt;
-              padding: 10px 5px 10px 5px ;
-              
-            }
-            button {
-              background-color:var(--dark-gruff-green);
-              margin: 0px 5px 0px 10px;
-              font-weight: lighter;
-            }
-            button:hover {
-              background-color:var(--gruff-green); 
-              color:var(--dark-gruff-green);
-              font-weight: bold;
-            }
-            input {
-              padding: 10px 5px 10px 5px ;
-            }
-            output {}
-            meter {}
-            progress {}
-            select {}
-              optgroup {}
-              option {}
-            textarea {}
-          
-          /* ----- Media ----- */
-          figure {}
-            figcaption {}
-          img {}
-          svg {}
-          picture {}
-            source {}
-          iframe {}
-          video {}
-          audio {}
-          embed {}
-          object {}
-          
-          
-          /*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
-          .floatright {}
-          .floatleft {}
-          .center-middle {}
-          
-          .ten {}
-          .twenty {}
-          .thirty {}
-          .forty {}
-          .fifty {}
-          .sixty {}
-          .seventy {}
-          .eighty {}
-          
-          .radius {}
-          .circle {}
-          .boxshadow {}
-          .tshadow {} 
-          .gradient {}
-          .shape {}
-          
-          @keyframes App-logo {}
-          
-          /*   ===== TABLET  media query overrides mobile styles ===== */
-          @media all and (min-width: 600px) {}
-          
-          /*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
-          @media all and (min-width: 1080px) {}
-          
-          /*   ===== PRINT  media query overrides previous styles =====  */
-          @media print {}
+/*   ===== PRINT  media query overrides previous styles =====  */
+@media print {}
           

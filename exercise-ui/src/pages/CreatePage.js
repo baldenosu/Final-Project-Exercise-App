@@ -32,21 +32,26 @@ export const CreatePage = () => {
         <>
         <article>
             <h2>Create a new exercise entry</h2>
-            <form onSubmit={(e) => {e.preventDefault();}}>
+            <form onSubmit={(e) => {
+                createExercise();
+                e.preventDefault();
+                }}>
                 <fieldset>
-                    <legend>Add your exercise</legend>
-                    <label for="name">Exercise Name</label>
+                    <legend>Add your exercise data</legend>
+                    <label for="name">Exercise</label>
                     <input
                         type="text" required
-                        placeholder='Name of Exercise'
+                        pattern="[A-Za-z]+"
+                        title="Exercise name no special characters"
                         value={name}
                         onChange={e => setName(e.target.value)}
                         id="name" />
 
-                    <label for="reps">Amount of Reps</label>
+                    <label for="reps">Number of Reps</label>
                     <input
                         type="text" required
-                        placeholder='0'
+                        pattern="[-+]?[0-9]*[.,]?[0-9]+"
+                        title="Number of repetitions"
                         value={reps}
                         onChange={e => setReps(e.target.value)}
                         id="reps" />
@@ -54,22 +59,28 @@ export const CreatePage = () => {
                     <label for="weight">Weight</label>
                     <input
                         type="text" required
-                        placeholder='0'
+                        pattern="[-+]?[0-9]*[.,]?[0-9]+"
+                        title="Weight can use decimals"
                         value={weight}
                         onChange={e => setWeight(e.target.value)}
                         id="weight" />
 
-                    <label for="unit">Weight Unit</label>
-                    <input
+                    <label for="unit">Units</label>
+                    <select
                         type="text" required
-                        placeholder='Weight Unit Measurement'
                         value={unit}
                         onChange={e => setUnit(e.target.value)}
-                        id="unit" />
+                        id="unit">
+                            <option>lbs</option>
+                            <option>kgs</option>
+                            <option>miles</option>
+                            <option>laps</option>
+                    </select>
 
                     <label for="date">Date</label>
                     <input
                         type="date" required
+                        min="2021-11-21"
                         value={date}
                         onChange={e => setDate(e.target.value)}
                         id="date" />
@@ -77,7 +88,6 @@ export const CreatePage = () => {
                     <label for="submit">
                         <button
                             type="submit"
-                            onClick={createExercise}
                             id="submit"
                         >Create</button>
                     </label>

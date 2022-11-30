@@ -21,8 +21,8 @@ function App() {
     <>
     <Router>
       <header>
-        <h1>Exercise App Name</h1>
-        <p>tagline for app</p>
+        <h1>Athletica </h1>
+        <p>Track your fitness</p>
       </header>
 
       <Navigation />

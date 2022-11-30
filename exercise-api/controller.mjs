@@ -22,7 +22,7 @@ function validateExercise(req) {
         errors.weight = 'invalid weight, must be a number higher than 0'
     }
     if (req.body.unit === undefined) {
-        errors.unit = 'invalid unit'
+        errors.unit = 'invalid unit type'
     }
     if (req.body.date === undefined) {
         errors.date = 'invalid date'
@@ -77,7 +77,7 @@ app.put('/exercises/:_id', expressAsyncHandler(async (req, res) => {
         // Validate the submitted update to check it is in the correct format if not return the errors.
         const errors = validateExercise(req)
         if (JSON.stringify(errors) !== '{}') {
-            res.status(401).json({errors});
+            res.status(400).json({errors});
         }
         const update = req.body;
         // Call updateExercise in model to update the database

@@ -47,8 +47,11 @@ function HomePage({ setExercise }) {
     return (
         <>
         <article>
-            <h2>List of exercises</h2>
-            <p>paragraph</p>
+            <h2>Athletica Exercise Tracker</h2>
+            <p>Welcome to Athletica, a tool for creating and tracking exercise. 
+                The home page contains a list of all your exercises. 
+                Use the create page to add a new exercise entries, 
+                and click the edit button next to an entry to edit that specific entry.</p>
             <ExerciseTable
                 exercises={exercises}
                 onEdit={onEditExercise}
@@ -58,18 +61,5 @@ function HomePage({ setExercise }) {
         </>
     );
 }
-
-// function HomePage() {
-//     return (
-//         <>
-//         <article>
-//             <h2>List of Exercises</h2>
-//             <p>This is a test</p>
-//         </article>
-//         </>
-//     );
-// }
-
-    
 
 export default HomePage;
