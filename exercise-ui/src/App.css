@@ -121,7 +121,6 @@ th {
 form {
   margin-top: 10px;
 }
-fieldset {}
 legend {
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
@@ -184,30 +183,7 @@ input:invalid {
   color: var(--Big-Machine-light);
   background-color: var(--Big-Machine-red);
 }
-
-img {}
-                  
-/*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
-.floatright {}
-.floatleft {}
-.center-middle {}
-          
-.ten {}
-.twenty {}
-.thirty {}
-.forty {}
-.fifty {}
-.sixty {}
-.seventy {}
-.eighty {}
-          
-.radius {}
-.circle {}
-.boxshadow {}
-.tshadow {} 
-.gradient {}
-.shape {}
-          
+             
 @keyframes App-logo {}
           
 /*   ===== TABLET  media query overrides mobile styles ===== */
