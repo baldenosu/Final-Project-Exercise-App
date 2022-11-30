@@ -32,6 +32,7 @@ export const CreatePage = () => {
         <>
         <article>
             <h2>Create a new exercise entry</h2>
+            <p>Use this form to create a new entry for an exercise. All fields must be filled out to Successfully create a new entry.</p>
             <form onSubmit={(e) => {
                 createExercise();
                 e.preventDefault();
@@ -89,7 +90,7 @@ export const CreatePage = () => {
                         <button
                             type="submit"
                             id="submit"
-                        >Create</button>
+                        >Save</button>
                     </label>
                 </fieldset>
             </form>

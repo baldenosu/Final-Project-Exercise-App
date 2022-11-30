@@ -22,7 +22,7 @@ function App() {
     <Router>
       <header>
         <h1>Athletica </h1>
-        <p>Track your fitness</p>
+        <p>Fitness for All</p>
       </header>
 
       <Navigation />

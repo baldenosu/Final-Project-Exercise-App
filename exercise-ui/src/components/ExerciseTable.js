@@ -13,8 +13,8 @@ function ExerciseTable({ exercises, onEdit, onDelete }) {
                     <th>Weight</th>
                     <th>Unit</th>
                     <th>Date</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th className='icon-columns'>Edit</th>
+                    <th className='icon-columns'>Delete</th>
                 </tr>
             </thead>
             <tbody>

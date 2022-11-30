@@ -7,7 +7,7 @@ export const EditPage = ({ exercise }) => {
     const [reps, setReps] = useState(exercise.reps);
     const [weight, setWeight] = useState(exercise.weight);
     const [unit , setUnit] = useState(exercise.unit); 
-    const [date, setDate] = useState(exercise.date.toLocaleString("en-US").slice(0,10));
+    const [date, setDate] = useState(exercise.date.slice(0,10));
 
     const history = useHistory();
 
@@ -37,6 +37,7 @@ export const EditPage = ({ exercise }) => {
         <>
         <article>
             <h2>Edit an exercise entry</h2>
+            <p>Use this form to edit and update previous exercise entries all fields must be filled.</p>
             <form onSubmit={(e) => {
                 editExercise();
                 e.preventDefault();
@@ -95,7 +96,7 @@ export const EditPage = ({ exercise }) => {
                         <button
                             type="submit"
                             id="submit"
-                        >Update</button>
+                        >Save</button>
                     </label>
                 </fieldset>
             </form>

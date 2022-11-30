@@ -31,20 +31,26 @@ body {       /* Can alternatively define in html {} or :root {} */
 /*  ----- Navigation ----- Override text links for navigation only.  */
 nav {
   text-align: center;
+  
+  background-color: var(--Big-Machine-grey);
+  padding: 18px 0px;
 }
 nav a {
   background-color:var(--Big-Machine-light);
   color:var(--Big-Machine-steel);
+  border: 2px solid var(--Big-Machine-steel);
   text-decoration: none;
   padding: 15px 25px;
   margin: 0px 5px;
   font-size: 24pt;
   font-weight: lighter;
+  vertical-align: top;
 }
 nav a:hover {
   background-color:var(--Big-Machine-red); 
   color:var(--Big-Machine-light);
   font-weight: bold;
+  border: 2px solid var(--Big-Machine-light);
 }
 
 
@@ -54,7 +60,7 @@ header, footer{
   color:var(--Big-Machine-light);
   font-size: 28pt;
   font-weight: light;
-  margin: 0px 0px 50px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 5px;
 }
 header {
@@ -68,27 +74,17 @@ main {
   color:var(--Big-Machine-steel);
   border: 2px solid var(--Big-Machine-grey);
   padding: 5% 15%;
-  margin: 2.5% 0;
+}
+article {
+  text-align: center;
 }
 
-section {}
-article {}
-
-div {}
-aside {}
-          
-          
-/*  -----  Typography  ----- */
-
-         
-span {
-  /* padding: 0px 7.5px; */
-}
-                    
-/*  ----- Coding or instructional typography ----- */
-          
+                   
 /*  ----- Table ----- */
 table {
+  table-layout: fixed;
+  width: 100%;
+  white-space: nowrap;
   border-collapse: collapse;
   border: 2px solid var(--Big-Machine-steel);
   background-color: var(--Big-Machine-light);
@@ -97,24 +93,27 @@ table {
 caption {
   font-size: 24pt;
 }
-tbody {}
-tfoot {}
-tr {}
 tr:nth-child(even) {
   background-color: var(--Big-Machine-grey);
 }
-th, td{ 
+th, td { 
   border: 2px solid var(--Big-Machine-steel);
   color: var(--Big-Machine-steel);
   padding: 5px 20px 5px 5px;
   text-align: left;
   font-size: 16pt;
+  overflow: hidden;
+}
+.icon-columns {
+  width: 10%;
+}
+.icon-td {
+padding: .3em .75em;
 }
 th {
   color: var(--Big-Machine-light);
   background-color: var(--Big-Machine-teal);
   font-size: 20pt;
-  
 }
  
 
@@ -125,6 +124,7 @@ form {
 fieldset {}
 legend {
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }
 label {
   font-weight: bold;
@@ -141,25 +141,24 @@ input, select, button{
   font-size: 14pt;
   box-sizing: content-box;
   padding: 10px 5px 10px 5px;
-  width: 200px;
-  
+  width: 200px; 
 }
 button {
   background-color:var(--Big-Machine-steel);
   color: var(--Big-Machine-light);
   margin: 10px 5px 0px 0px;
   font-weight: lighter;
+  border: 3px solid black;
 }
 button:hover {
   background-color:var(--Big-Machine-red); 
   color:var(--Big-Machine-light);
   font-weight: bold;
 }
-
+/* Borders for when entry is valid and invalid and autofill styling */
 input:-webkit-autofill {
   border: 3px solid var(--Big-Machine-teal);
 }
-
 input:autofill {
   border: 3px solid var(--Big-Machine-teal);
 }
@@ -175,11 +174,10 @@ input:invalid {
 /* ----- Media ----- */
 .react-icons {
   vertical-align: middle;
-  margin: 0;
   color: var(--Big-Machine-light);
   background-color: var(--Big-Machine-steel);
-  padding: 0.5em;
-  border-radius: 20%;
+  padding: 0.5em 1em;
+  border-radius: 15%;
 }
 .react-icons:hover {
   cursor: pointer;
